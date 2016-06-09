@@ -1,0 +1,50 @@
+# First, build the global lib with only the other components excluded
+
+--macro exclude('Main')
+--macro exclude('ClassA')
+--macro exclude('ClassB')
+
+--gen-hx-classes
+-dce full
+-js bin/lib.js
+-cp src
+-main DummyMain
+
+# Then build each component, excluding std libs and other components
+--next
+
+--macro exclude('Main')
+--macro exclude('ClassB')
+--macro excludeFile('excludes.txt')
+
+--gen-hx-classes
+-dce full
+-js bin/class_a.js
+-cp src
+-main DummyMain
+
+# Then build each component, excluding std libs and other components
+--next
+
+--macro exclude('ClassA')
+--macro exclude('Main')
+--macro excludeFile('excludes.txt')
+
+--gen-hx-classes
+-dce full
+-js bin/class_b.js
+-cp src
+-main DummyMain
+
+# Finally, build the top-level Main, excluding std libs and other components
+--next
+
+--macro exclude('ClassA')
+--macro exclude('ClassB')
+--macro excludeFile('excludes.txt')
+
+--gen-hx-classes
+-dce full
+-js bin/main.js
+-cp src
+-main Main
