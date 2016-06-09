@@ -10,7 +10,7 @@ Running `haxe build.hxml` without the compilation server results in output .js f
 class (ClassA, ClassB, and Main) defined in its own module, while the majority of the Haxe
 standard lib is in lib.js.
 
-Running `haxe --connect 6000 build.hxml` results in the output .js files that are missing
+Running `haxe --connect 6000 build.hxml` results in slightly smaller output .js files that are missing
 ClassA, ClassB, and Main.
 
 Suspect is the exclusion macros, `--macro exclude` and `--macro excludeFiles`. Presumably
