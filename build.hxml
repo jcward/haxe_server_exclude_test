@@ -4,6 +4,7 @@
 --macro exclude('ClassA')
 --macro exclude('ClassB')
 
+-D TARGET_CLASS='global'
 --gen-hx-classes
 -dce full
 -js bin/lib.js
@@ -17,6 +18,7 @@
 --macro exclude('ClassB')
 --macro excludeFile('excludes.txt')
 
+-D TARGET_CLASS='ClassA'
 --gen-hx-classes
 -dce full
 -js bin/class_a.js
@@ -30,6 +32,7 @@
 --macro exclude('Main')
 --macro excludeFile('excludes.txt')
 
+-D TARGET_CLASS='ClassB'
 --gen-hx-classes
 -dce full
 -js bin/class_b.js
@@ -39,6 +42,7 @@
 # Finally, build the top-level Main, excluding std libs and other components
 --next
 
+-D TARGET_CLASS='Main'
 --macro exclude('ClassA')
 --macro exclude('ClassB')
 --macro excludeFile('excludes.txt')
