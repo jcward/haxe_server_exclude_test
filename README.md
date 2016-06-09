@@ -4,7 +4,7 @@ This is a simplified testcase of my Haxe/JS modular build system. It makes heavy
 class exclusion macros to get modular JS output. The issue is when I try to use the
 compilation server, class definitions are missing.
 
-test.sh automates the test, but it's fairly simple:
+The test.sh script (likely Linux only) automates the test, but it's very simple:
 
 Running `haxe build.hxml` without the compilation server results in output .js files with each
 class (ClassA, ClassB, and Main) defined in its own module, while the majority of the Haxe
